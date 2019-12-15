@@ -27,7 +27,7 @@ sem_t emission_sem;
 
 double calculate_pollution(double car_pollution, double hardness){
     double pollution = 0;
-    for(long int k = 0; k < 1e7; k++){
+    for(long int k = 0; k <= 1e7; k++){
         pollution += floor(k / (1e6*car_pollution*hardness));
     }
     return pollution;
@@ -166,5 +166,6 @@ int main()
         sem_destroy(&locks[i]);
     }
     cout << "all cars reach their destination" << endl;
+    cout << "Total Emission: " << to_string(total_emission) << endl;
     return 0;
 }
